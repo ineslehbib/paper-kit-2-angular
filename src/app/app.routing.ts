@@ -8,14 +8,20 @@ import { ProfileComponent } from './examples/profile/profile.component';
 import { SignupComponent } from './examples/signup/signup.component';
 import { LandingComponent } from './examples/landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
-
-const routes: Routes =[
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: 'home',             component: ComponentsComponent },
-    { path: 'user-profile',     component: ProfileComponent },
-    { path: 'signup',           component: SignupComponent },
-    { path: 'landing',          component: LandingComponent },
-    { path: 'nucleoicons',      component: NucleoiconsComponent }
+import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
+import { TypographyComponent } from './components/typography/typography.component';
+import { BasicelementsComponent } from './components/basicelements/basicelements.component';
+const routes: Routes = [
+  {
+    path: '',
+    component: ComponentsComponent,
+    children: [
+      { path: 'home/:id/:quest/:formulaire', component: BasicelementsComponent },
+      { path: 'terminé', component: TypographyComponent },
+      { path: 'devis/:identifiant', component: NucleoiconsComponent },
+      // Add more paths and components as needed
+    ],
+  }
 ];
 
 @NgModule({

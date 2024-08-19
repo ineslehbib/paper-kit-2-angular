@@ -197,6 +197,7 @@ body {
   font-size: 14px;
   font-weight: 300;
   font-family: 'Montserrat', "Helvetica", Arial, sans-serif;
+  background-color: #f0ecfa !important;
 }
 
 a {
@@ -5023,7 +5024,7 @@ textarea.form-control {
     -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     left: 0;
-    background-color: white;
+    background-color: #f0ecfa !important;
   }
 }
 @media screen and (min-width: 767px) {
@@ -5738,7 +5739,7 @@ textarea.form-control {
   background-color: #B2AFAB;
   background-position: center center;
   background-size: cover;
-  min-height: 100vh;
+  min-height: 30vh;
   max-height: 999px;
   overflow: hidden;
   position: relative;

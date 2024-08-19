@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
-
+import { ServService } from 'app/service/serv.service';
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
@@ -10,11 +10,24 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(public location: Location, private element : ElementRef) {
+    constructor(public location: Location, private element: ElementRef, public service: ServService) {
         this.sidebarVisible = false;
     }
-
+    parameters: any;
+    Website_logo: any;
+    twitter: any;
+    instagram: any;
+    facebook: any;
     ngOnInit() {
+        this.service.getParameters().subscribe(res => {
+            this.parameters = res.value[0];
+            console.log(this.parameters);
+
+            this.Website_logo = this.parameters.DLT_Website_logo;
+            this.facebook = this.parameters.Facebook1;
+            this.instagram = this.parameters.Instagram1;
+            this.twitter = this.parameters.Twitter1;
+        })
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
     }

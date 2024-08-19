@@ -8,18 +8,29 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-
+import { Routes } from '@angular/router';
 import { ComponentsModule } from './components/components.module';
 import { ExamplesModule } from './examples/examples.module';
+import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { TypographyComponent } from './components/typography/typography.component';
+import { ThousandsSeparatorPipe } from './components/pipes/thousands-separator.pipe';
+
+const routes: Routes = [
+  { path: 'CRM/:id/:quest/:formulaire', component: QuestionnaireComponent },
+  { path: 'CRM/terminé', component: TypographyComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+     
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     NgbModule,
     FormsModule,
@@ -27,6 +38,8 @@ import { ExamplesModule } from './examples/examples.module';
     ComponentsModule,
     ExamplesModule,
     AppRoutingModule,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

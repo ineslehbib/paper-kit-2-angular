@@ -965,7 +965,7 @@
     font-size: 1.6rem;
     font-family: sans-serif;
     color: #333333;
-    background: white;
+    background: #f0ecfa !important;
 }
 .demo-icons a {
     color: #608CEE;
